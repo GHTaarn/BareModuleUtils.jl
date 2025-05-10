@@ -2,3 +2,6 @@ name = "BareModuleUtils"
 uuid = "d2ca21cc-8c21-40a6-8710-20e151b6cbbf"
 authors = ["GHTaarn <62629455+GHTaarn@users.noreply.github.com>"]
 version = "0.1.0-DEV"
+
+[compat]
+julia = "1"

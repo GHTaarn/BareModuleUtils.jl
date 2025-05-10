@@ -23,11 +23,11 @@ function using_from_base(m::Module, syms...) # TODO: make sure that syms only co
 end
 
 function generate_eval(m::Module)
-    @eval m eval(x) = Core.eval(m, x)
+    @eval m eval(x) = Core.eval($(m), x)
 end
 
 function generate_include(m::Module)
-    @eval m include(x) = Base.include(m, x)
+    @eval m include(x) = Base.include($(m), x)
 end
 
 macro generate_eval()

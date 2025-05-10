@@ -1,6 +1,7 @@
 module BareModuleUtils
 
-export generate_symbols, @init_without
+export generate_symbols, @init_without, @generate_eval, @generate_include
+export @import_from_base, @using_from_base
 
 function generate_symbols(m::Module; eval::Bool=true, include::Bool=true, baseskip=Symbol[])
     eval && generate_eval(m)

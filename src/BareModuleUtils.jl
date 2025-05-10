@@ -38,6 +38,10 @@ macro generate_include()
     return :(generate_include($(__module__)))
 end
 
+macro using_from_base(syms...)
+    return :(using_from_base($(__module__), $(syms...)))
+end
+
 macro import_from_base(syms...)
     return :(import_from_base($(__module__), $(syms...)))
 end

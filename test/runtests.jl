@@ -37,6 +37,7 @@ end
 @testset "@init_without" begin
     for mod in [A, B, C]
         @test isdefined(mod, :Base)
+        @test !isdefined(mod, :isexported)
         @test !isdefined(mod, :isopen)
         @test !isdefined(mod, Symbol("'"))
     end

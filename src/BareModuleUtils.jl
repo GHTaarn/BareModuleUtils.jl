@@ -6,8 +6,10 @@ export @import_from_base, @using_from_base
 function generate_symbols(m::Module; eval::Bool=true, include::Bool=true, baseskip=Symbol[])
     eval && generate_eval(m)
     include && generate_include(m)
-    for sym in filter(∉(baseskip), names(Base))
-        @eval m using Base: $(sym)
+    for sym in names(Base)
+        if Base.isexported(Base, sym) && sym ∉ baseskip
+            @eval m using Base: $(sym)
+        end
     end
 end
 
